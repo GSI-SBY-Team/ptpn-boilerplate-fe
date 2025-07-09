@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import komoditasService from "~/services/komoditas.service";
+//import komoditasService from "~/services/komoditas.service";
 export default {
   props: {
     title: {

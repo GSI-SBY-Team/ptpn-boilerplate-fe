@@ -63,7 +63,7 @@
         hide-details="auto"
       ></v-autocomplete>
 
-      <v-label class="mb-2 mt-2 font-weight-medium">Metode Angkutan</v-label>
+      <!-- <v-label class="mb-2 mt-2 font-weight-medium">Metode Angkutan</v-label>
       <v-autocomplete
         v-model="editedItem.metodeAngkutanId"
         :items="listMetodeAngkutan"
@@ -75,7 +75,7 @@
         :rules="[(v) => !!v || 'Wajib diisi']"
         placeholder="Pilih Metode Angkutan"
         hide-details="auto"
-      ></v-autocomplete>
+      ></v-autocomplete> -->
 
       <v-label class="mb-2 mt-2 font-weight-medium">Alamat</v-label>
       <v-textarea
@@ -104,7 +104,7 @@
 import Swal from "sweetalert2";
 import kebunService from "@/services/kebun.service";
 import regionalService from "~/services/regional.service";
-import metodeAngkutanService from "@/services/metode_angkutan.service";
+// import metodeAngkutanService from "@/services/metode_angkutan.service";
 
 definePageMeta({
   layout: "admin",
@@ -180,7 +180,7 @@ onBeforeMount(() => {
 
 onMounted(async () => {
   loadAllRegional();
-  loadAllMetodeAngkutan();
+  // loadAllMetodeAngkutan();
   loadAll();
 });
 
@@ -192,13 +192,13 @@ function loadAllRegional() {
     });
 }
 
-function loadAllMetodeAngkutan() {
-  metodeAngkutanService()
-    .retrieveAll({})
-    .then((res: any) => {
-      listMetodeAngkutan.value = res.data || [];
-    });
-}
+// function loadAllMetodeAngkutan() {
+//   metodeAngkutanService()
+//     .retrieveAll({})
+//     .then((res: any) => {
+//       listMetodeAngkutan.value = res.data || [];
+//     });
+// }
 
 async function loadAll() {
   const { pageNumber, pageSize, q, sortBy, sortType, regionalId } = route.query;

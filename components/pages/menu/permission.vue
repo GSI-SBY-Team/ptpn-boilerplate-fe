@@ -172,7 +172,7 @@
 <script setup lang="ts">
 import menuService from "@/services/menu.service";
 import roleService from "@/services/role.service";
-import komoditasService from "@/services/komoditas.service";
+// import komoditasService from "@/services/komoditas.service";
 import { useAuthStore } from "@/stores/auth";
 
 const route = useRoute();
@@ -188,7 +188,7 @@ const authStore = useAuthStore();
 
 onMounted(async () => {
   loadAllRole();
-  loadAllKomoditas();
+  // loadAllKomoditas();
 });
 
 function loadAllRole() {
@@ -199,13 +199,13 @@ function loadAllRole() {
     });
 }
 
-function loadAllKomoditas() {
-  komoditasService()
-    .retrieveAll({})
-    .then((res: any) => {
-      listKomoditas.value = res.data || [];
-    });
-}
+// function loadAllKomoditas() {
+//   komoditasService()
+//     .retrieveAll({})
+//     .then((res: any) => {
+//       listKomoditas.value = res.data || [];
+//     });
+// }
 
 async function loadMenuStore(){
   const roleID = authStore.user.roleId

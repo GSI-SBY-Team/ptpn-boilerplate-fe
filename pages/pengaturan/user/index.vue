@@ -228,25 +228,25 @@
     </DialogForm>
 
     <!-- Lookup Pegawai -->
-    <LookupPegawai
+    <!-- <LookupPegawai
       ref="lookupPegawai"
       :persistent="true"
       @selected="selectedItem"
-    ></LookupPegawai>
+    ></LookupPegawai> -->
     <!-- Lookup Komoditas -->
-    <LookupKomoditas
+    <!-- <LookupKomoditas
       ref="lookupKomoditas"
       :persistent="true"
       @selectedKomoditas="selectedKomoditas"
-    ></LookupKomoditas>
+    ></LookupKomoditas> -->
   </div>
 </template>
 <script setup lang="ts">
 import Swal from "sweetalert2";
 import userService from "@/services/user.service";
 import roleService from "@/services/role.service";
-import komoditasService from "@/services/komoditas.service";
-import pabrikService from "@/services/pabrik.service";
+// import komoditasService from "@/services/komoditas.service";
+// import pabrikService from "@/services/pabrik.service";
 import regionalService from "~/services/regional.service";
 import kebunService from "~/services/kebun.service";
 import afdelingService from "~/services/afdeling.service";
@@ -349,8 +349,8 @@ onBeforeMount(() => {
 onMounted(async () => {
   loadAll();
   loadAllRole();
-  loadAllKomoditas();
-  loadAllPabrik();
+  // loadAllKomoditas();
+  // loadAllPabrik();
   loadAllRegional();
 });
 
@@ -362,21 +362,21 @@ function loadAllRole() {
     });
 }
 
-function loadAllKomoditas() {
-  komoditasService()
-    .retrieveAll({})
-    .then((res: any) => {
-      listKomoditas.value = res.data || [];
-    });
-}
+// function loadAllKomoditas() {
+//   komoditasService()
+//     .retrieveAll({})
+//     .then((res: any) => {
+//       listKomoditas.value = res.data || [];
+//     });
+// }
 
-function loadAllPabrik() {
-  pabrikService()
-    .retrieveAll({})
-    .then((res: any) => {
-      listPabrik.value = res.data || [];
-    });
-}
+// function loadAllPabrik() {
+//   pabrikService()
+//     .retrieveAll({})
+//     .then((res: any) => {
+//       listPabrik.value = res.data || [];
+//     });
+// }
 
 function loadAllRegional() {
   regionalService()
